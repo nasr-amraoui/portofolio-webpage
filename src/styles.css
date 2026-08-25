@@ -1,0 +1,202 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+/*
+ * Editorial / Swiss brutalist design system.
+ * Dark, monochrome, typography-driven. Radius is effectively 0.
+ */
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--foreground);
+  --color-primary-foreground: var(--background);
+  --color-secondary: var(--elevated);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--elevated);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--elevated);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: oklch(0.6 0.2 25);
+  --color-destructive-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--muted-foreground);
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter Tight", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --radius: 0px;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.963 0 0);
+  --muted-foreground: oklch(0.63 0 0);
+  --faint-foreground: oklch(0.46 0 0);
+  --border: oklch(0.26 0 0);
+  --elevated: oklch(0.19 0 0);
+  --card: oklch(0.165 0 0);
+}
+
+@theme inline {
+  --color-faint-foreground: var(--faint-foreground);
+  --color-elevated: var(--elevated);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0 0);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.42 0 0);
+  }
+}
+
+/* ---------- editorial primitives ---------- */
+
+@utility shell {
+  width: 100%;
+  max-width: 1560px;
+  margin-inline: auto;
+  padding-inline: 1.375rem;
+
+  @media (width >= 768px) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 1280px) {
+    padding-inline: 4rem;
+  }
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+@utility label-xs {
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+
+@utility tracked {
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+@utility hairline {
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- reveal motion ---------- */
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 900ms var(--ease-editorial),
+    transform 900ms var(--ease-editorial);
+  transition-delay: var(--reveal-delay, 0ms);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility reveal-mask {
+  overflow: hidden;
+
+  & > * {
+    display: block;
+    transform: translateY(105%);
+    transition: transform 1100ms var(--ease-editorial);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  &[data-visible="true"] > * {
+    transform: none;
+  }
+}
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@utility drift {
+  animation: drift 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
