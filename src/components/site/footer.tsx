@@ -2,9 +2,9 @@ import { Reveal } from "./reveal";
 import { Github, Linkedin, Instagram, Dribbble } from "lucide-react";
 
 const socials = [
-  { label: "GitHub", href: "https://github.com", icon: Github },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
+  { label: "GitHub", href: "https://github.com/nasr-amraoui", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/nasreddine-amraoui-469928245/", icon: Linkedin },
+  { label: "Instagram", href: "https://www.instagram.com/amraoui_1.0/", icon: Instagram },
 ];
 
 export function Footer() {

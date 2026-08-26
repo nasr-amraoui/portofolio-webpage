@@ -7,12 +7,60 @@ import prayer from "@/assets/work-prayer.jpg";
 import visulab from "@/assets/work-visulab.jpg";
 
 const projects = [
-  { n: "01", name: "Taxista", cat: "Mobile / Product Design / Kotlin", year: "2024", img: taxista, desc: "Ride-hailing app for local drivers — booking, live trips and fare logic.", wide: true },
-  { n: "02", name: "Mabit", cat: "Web / Mobile / Product", year: "2025", img: mabit, desc: "Stay management platform with a dense operator dashboard.", wide: false },
-  { n: "03", name: "Authengo", cat: "Mobile / Security / UX", year: "2025", img: authengo, desc: "Biometric authentication flows designed to disappear into the product.", wide: false },
-  { n: "04", name: "Talk Mate", cat: "AI / Mobile / Product", year: "2025", img: talkmate, desc: "Conversational language practice with real-time speech feedback.", wide: true },
-  { n: "05", name: "Prayer", cat: "Mobile / Kotlin / UI", year: "2026", img: prayer, desc: "Quiet, precise prayer timing built around typography and calm.", wide: false },
-  { n: "06", name: "Visulab", cat: "Brand / Web / E-commerce", year: "2026", img: visulab, desc: "Identity system and storefront for a small print studio.", wide: false },
+  {
+    n: "01",
+    name: "Taxista",
+    cat: "Mobile / Product Design / Kotlin",
+    year: "2024",
+    img: taxista,
+    desc: "Ride-hailing app for local drivers — booking, live trips and fare logic.",
+    wide: true,
+  },
+  {
+    n: "02",
+    name: "Mabit",
+    cat: "Web / Mobile / Product",
+    year: "2025",
+    img: mabit,
+    desc: "Stay management platform with a dense operator dashboard.",
+    wide: false,
+  },
+  {
+    n: "03",
+    name: "Authengo",
+    cat: "Mobile / Security / UX",
+    year: "2025",
+    img: authengo,
+    desc: "Biometric authentication flows designed to disappear into the product.",
+    wide: false,
+  },
+  {
+    n: "04",
+    name: "Talk Mate",
+    cat: "AI / Mobile / Product",
+    year: "2025",
+    img: talkmate,
+    desc: "Conversational language practice with real-time speech feedback.",
+    wide: true,
+  },
+  {
+    n: "05",
+    name: "Prayer",
+    cat: "Mobile / Kotlin / UI",
+    year: "2026",
+    img: prayer,
+    desc: "Quiet, precise prayer timing built around typography and calm.",
+    wide: false,
+  },
+  {
+    n: "06",
+    name: "Visulab",
+    cat: "Brand / Web / E-commerce",
+    year: "2026",
+    img: visulab,
+    desc: "Identity system and storefront for a small print studio.",
+    wide: false,
+  },
 ];
 
 export function Work() {
@@ -34,11 +82,7 @@ export function Work() {
 
       <div className="shell mt-20 grid gap-x-10 gap-y-24 md:mt-32 md:grid-cols-2">
         {projects.map((p, i) => (
-          <Reveal
-            key={p.n}
-            delay={(i % 2) * 100}
-            className={p.wide ? "md:col-span-2" : undefined}
-          >
+          <Reveal key={p.n} delay={(i % 2) * 100} className={p.wide ? "md:col-span-2" : undefined}>
             <article data-cursor="view" className="group">
               <div className="overflow-hidden bg-elevated">
                 <img
