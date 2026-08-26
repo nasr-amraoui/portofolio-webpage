@@ -8,11 +8,7 @@ import { Contact } from "./components/site/contact";
 import { Experience } from "./components/site/timeline";
 import { Faq } from "./components/site/faq";
 import { Stats } from "./components/site/stats";
-import { Nav } from "./components/site/nav";
-import { Hero } from "./components/site/hero";
-import { Statement } from "./components/site/statement";
-import { CustomCursor } from "./components/site/cursor";
-import { Footer } from "./components/site/footer";
+import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -27,5 +23,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/stats" element={<Stats />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
