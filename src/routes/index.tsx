@@ -1,5 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
-
 import { CustomCursor } from "@/components/site/cursor";
 import { Nav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
@@ -16,21 +14,7 @@ const title = "NasrEddine Amraoui — Mobile & Web Developer";
 const description =
   "Portfolio of NasrEddine Amraoui, a Moroccan mobile and web developer building thoughtful digital products, interfaces and experiences.";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Index,
-});
-
-function Index() {
+export function Index() {
   return (
     <main className="relative min-h-screen bg-background">
       <CustomCursor />
